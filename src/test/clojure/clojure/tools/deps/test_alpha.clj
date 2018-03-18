@@ -109,5 +109,5 @@
      'ex/y {{:fkn/version "1"} nil}
      'ex/z {{:fkn/version "1"} nil}}
     (is (= {:a "1", :b "1", :c "1", :x "2", :y "1"}
-          (let [res (deps/resolve-deps {:deps {'ex/a {:fkn/version "1"}, 'ex/c {:fkn/version "1"}}} nil)]
+          (let [res (deps/resolve-deps {:deps {'ex/c {:fkn/version "1"}, 'ex/a {:fkn/version "1"}}} nil)]
             (reduce-kv #(assoc %1 (-> %2 name keyword) (:fkn/version %3)) {} res))))))
